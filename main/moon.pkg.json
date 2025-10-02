@@ -1,0 +1,15 @@
+{
+  "is-main": true,
+  "import": [
+    {
+      "path": "tiye/antd",
+      "alias": "lib"
+    },
+    {
+      "path": "tiye/react",
+      "alias": "react"
+    },
+    { "path": "tiye/respo_css", "alias": "css" },
+    { "path": "tiye/dom-ffi/lib", "alias": "dom" }
+  ]
+}

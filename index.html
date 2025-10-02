@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AntD - MoonBit + React</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="module" src="./react.mjs"></script>
+    <!-- 生成的 MoonBit 代码 -->
+    <script type="module" defer>
+        // 导入生成的 JS 文件
+        import('./target/js/debug/build/main/main.js').then(module => {
+            // 调用 todolist 的 main 函数
+            console.log('Loading TodoMVC application...');
+
+        }).catch(err => {
+            console.error('Failed to load module:', err);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "vite": "^7.1.8"
+  },
+  "dependencies": {
+    "antd": "^5.27.4",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  }
+}
