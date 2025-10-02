@@ -7,6 +7,10 @@
     {
       "path": "tiye/react",
       "alias": "react"
+    },
+    {
+      "path": "tiye/respo_css",
+      "alias": "css"
     }
   ]
 }
