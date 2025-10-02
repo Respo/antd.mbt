@@ -27,17 +27,18 @@ fn comp_container(_v : ContainerProps) -> VirtualNode {
     id="container",
     style=respo_style(color=Blue, font_family="Arial", padding=10.0 |> Px),
     [
-      @react.div(
-        on_click=fn(_) {
-          println("clicked \{counter}")
-          set_counter(counter + 1.0)
-        },
-        class_list=[style_counter],
-        [
-          @react.Fragment([@react.Text("Demo: ")]),
-          @react.Text("Counter \{counter}"),
-        ],
-      ),
+      @react.div(class_list=[style_counter], [
+        @react.Fragment([@react.Text("Demo: ")]),
+        @react.Text("Counter \{counter}"),
+        @antd.button(
+          type_=Primary,
+          on_click=fn(_) {
+            println("clicked button")
+            set_counter(counter + 1.0)
+          },
+          [@react.Text("Click me")],
+        ),
+      ]),
     ],
   )
 }

@@ -2,15 +2,13 @@
   "name": "tiye/antd",
   "version": "0.0.1",
   "deps": {
-    "tiye/react": "0.0.2-a1"
+    "tiye/dom-ffi": "0.1.1",
+    "tiye/react": "0.0.2-a3"
   },
   "readme": "README.mbt.md",
   "repository": "https://github.com/Respo/antd.mbt",
   "license": "Apache-2.0",
-  "keywords": [
-    "antd",
-    "react"
-  ],
+  "keywords": ["antd", "react"],
   "description": "Ant Design for React binding of MoonBit",
   "preferred-target": "js"
 }

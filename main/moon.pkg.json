@@ -3,7 +3,7 @@
   "import": [
     {
       "path": "tiye/antd",
-      "alias": "lib"
+      "alias": "antd"
     },
     {
       "path": "tiye/react",
