@@ -93,6 +93,185 @@ fn comp_container(_v : ContainerProps) -> VirtualNode {
             @react.Text("This is a marked paragraph."),
           ]),
         ]),
+        @react.div(style=respo_style(margin_top=20.0 |> Px), [
+          @antd.typography_title(level=Level3, [
+            @react.Text("Layout Components"),
+          ]),
+          @antd.divider(dashed=true, []),
+          @antd.typography_text([@react.Text("Divider with dashed style")]),
+          @antd.divider([@react.Text("Simple Divider")]),
+          @antd.flex(gap=@antd.FlexGap::Middle, [
+            @antd.button([@react.Text("Button 1")]),
+            @antd.button([@react.Text("Button 2")]),
+            @antd.button([@react.Text("Button 3")]),
+          ]),
+          @antd.space([
+            @antd.typography_text([@react.Text("Space component")]),
+            @antd.button([@react.Text("Spaced Button 1")]),
+            @antd.button([@react.Text("Spaced Button 2")]),
+          ]),
+          @antd.layout([
+            @antd.layout_header([@react.Text("Header")]),
+            @antd.layout_content([@react.Text("Content Area")]),
+            @antd.layout_footer([@react.Text("Footer")]),
+          ]),
+        ]),
+        @react.div(style=respo_style(margin_top=20.0 |> Px), [
+          @antd.typography_title(level=Level3, [
+            @react.Text("Navigation Components"),
+          ]),
+          @antd.divider(dashed=true, []),
+          @antd.breadcrumb([
+            @antd.BreadcrumbItem::{
+              title: "Home",
+              href: None,
+              class_name: None,
+            },
+            @antd.BreadcrumbItem::{
+              title: "Application Center",
+              href: None,
+              class_name: None,
+            },
+            @antd.BreadcrumbItem::{
+              title: "Application List",
+              href: None,
+              class_name: None,
+            },
+            @antd.BreadcrumbItem::{
+              title: "An Application",
+              href: None,
+              class_name: None,
+            },
+          ]),
+          @react.div(style=respo_style(margin_top=16.0 |> Px), [
+            @antd.menu(
+              [
+                @antd.MenuItem::{
+                  key: "1",
+                  label: "Navigation One",
+                  disabled: None,
+                  icon: None,
+                },
+                @antd.MenuItem::{
+                  key: "2",
+                  label: "Navigation Two",
+                  disabled: None,
+                  icon: None,
+                },
+                @antd.MenuItem::{
+                  key: "3",
+                  label: "Navigation Three",
+                  disabled: None,
+                  icon: None,
+                },
+              ],
+              mode=@antd.MenuMode::Horizontal,
+              default_selected_keys=["1"],
+            ),
+          ]),
+          @react.div(style=respo_style(margin_top=16.0 |> Px), [
+            @antd.steps(current=1, [
+              @antd.steps_step("Finished", description="This is a description."),
+              @antd.steps_step(
+                "In Progress",
+                description="This is a description.",
+              ),
+              @antd.steps_step("Waiting", description="This is a description."),
+            ]),
+          ]),
+          @react.div(style=respo_style(margin_top=16.0 |> Px), [
+            @antd.typography_title(level=@antd.TitleLevel::Level3, [@react.Text("Data Entry Components")]),
+            @react.div(style=respo_style(margin_bottom=16.0 |> Px), [
+              @react.Text("Input: "),
+              @antd.input(
+                placeholder="Basic usage",
+              ),
+            ]),
+            @react.div(style=respo_style(margin_bottom=16.0 |> Px), [
+              @antd.checkbox(
+                default_checked=true,
+                [@react.Text("Checkbox")],
+              ),
+            ]),
+            @react.div(style=respo_style(margin_bottom=16.0 |> Px), [
+              @antd.radio(
+                default_checked=true,
+                value="radio1",
+                [@react.Text("Radio")],
+              ),
+            ]),
+            @react.div(style=respo_style(margin_bottom=16.0 |> Px), [
+              @react.Text("Radio Group: "),
+              @antd.radio_group(
+                [
+                  @antd.RadioOption::new("Apple", "apple", None),
+                  @antd.RadioOption::new("Pear", "pear", None),
+                  @antd.RadioOption::new("Orange", "orange", Some(true)),
+                ],
+                default_value="apple",
+              ),
+            ]),
+            @react.div(style=respo_style(margin_bottom=16.0 |> Px), [
+              @react.Text("Switch: "),
+              @antd.switch(
+                default_checked=true,
+              ),
+            ]),
+          ]),
+          @react.div(style=respo_style(margin_top=16.0 |> Px), [
+            @antd.typography_title(level=@antd.TitleLevel::Level3, [@react.Text("Data Display Components")]),
+            @react.div(style=respo_style(margin_bottom=16.0 |> Px), [
+              @react.Text("Avatar: "),
+              @antd.avatar([@react.Text("U")]),
+              @react.Text(" "),
+              @antd.avatar([@react.Text("USER")]),
+            ]),
+            @react.div(style=respo_style(margin_bottom=16.0 |> Px), [
+              @react.Text("Badge: "),
+              @antd.badge(
+                count=5,
+                [@antd.avatar([@react.Text("A")])],
+              ),
+              @react.Text(" "),
+              @antd.badge(
+                dot=true,
+                [@antd.avatar([@react.Text("B")])],
+              ),
+            ]),
+            @react.div(style=respo_style(margin_bottom=16.0 |> Px), [
+              @antd.card(
+                title="Card Title",
+                [@react.Text("Card content goes here. This is a sample card component.")],
+              ),
+            ]),
+            @react.div(style=respo_style(margin_bottom=16.0 |> Px), [
+              @react.Text("Tags: "),
+              @antd.tag([@react.Text("Success")]),
+              @react.Text(" "),
+              @antd.tag([@react.Text("Error")]),
+              @react.Text(" "),
+              @antd.tag([@react.Text("Warning")]),
+            ]),
+            @react.div(style=respo_style(margin_bottom=16.0 |> Px), [
+            @antd.tooltip(
+              "This is a tooltip",
+              [@react.Text("Hover me for tooltip")],
+            ),
+          ]),
+          @react.div(style=respo_style(margin_top=16.0 |> Px), [
+             @antd.typography_title(level=@antd.TitleLevel::Level3, [@react.Text("Feedback Components")]),
+             @react.div(style=respo_style(margin_bottom=16.0 |> Px), [
+               @antd.alert("This is an info alert"),
+             ]),
+             @react.div(style=respo_style(margin_bottom=16.0 |> Px), [
+               @antd.progress(50),
+             ]),
+             @react.div(style=respo_style(margin_bottom=16.0 |> Px), [
+               @antd.spin([@react.Text("Loading content...")]),
+             ]),
+           ]),
+          ]),
+        ]),
       ]),
     ],
   )
