@@ -38,6 +38,20 @@ fn comp_container(_v : ContainerProps) -> VirtualNode {
           },
           [@react.Text("Click me")],
         ),
+        @antd.flat_button(
+          type_=Primary,
+          icon=@react.Text("🚀"),
+          tooltip=@react.Text("Flat Button Tooltip"),
+          on_click=fn(_) {
+            println("clicked flat button")
+            set_counter(counter + 0.5)
+          },
+          [@react.Text("Flat...")],
+        ),
+        @antd.flat_button_group(shape=Circle, trigger=Click, [
+          @antd.flat_button(icon=@react.Text("📝"), [@react.Text("Edit")]),
+          @antd.flat_button(icon=@react.Text("💾"), [@react.Text("Save")]),
+        ]),
       ]),
     ],
   )
