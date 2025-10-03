@@ -59,6 +59,40 @@ fn comp_container(_v : ContainerProps) -> VirtualNode {
           @antd.icon(icon_type=Setting, rotate=45, []),
           @antd.icon(icon_type=Heart, two_tone_color="#eb2f96", []),
         ]),
+        @react.div(style=respo_style(margin_top=20.0 |> Px), [
+          @antd.typography_title(level=Level1, [
+            @react.Text("Typography Title H1"),
+          ]),
+          @antd.typography_title(level=Level2, type_=Secondary, [
+            @react.Text("Typography Title H2 Secondary"),
+          ]),
+          @antd.typography_title(level=Level3, mark=true, [
+            @react.Text("Typography Title H3 with Mark"),
+          ]),
+          @antd.typography_text([@react.Text("This is a normal text.")]),
+          @antd.typography_text(type_=Success, strong=true, [
+            @react.Text("This is a success strong text."),
+          ]),
+          @antd.typography_text(type_=Warning, italic=true, [
+            @react.Text("This is a warning italic text."),
+          ]),
+          @antd.typography_text(type_=Danger, underline=true, [
+            @react.Text("This is a danger underlined text."),
+          ]),
+          @antd.typography_text(code=true, [
+            @react.Text("console.log('Hello World')"),
+          ]),
+          @antd.typography_paragraph([
+            @react.Text("This is a paragraph with multiple lines. "),
+            @antd.typography_text(strong=true, [@react.Text("Bold text ")]),
+            @react.Text("and "),
+            @antd.typography_text(italic=true, [@react.Text("italic text ")]),
+            @react.Text("mixed together."),
+          ]),
+          @antd.typography_paragraph(mark=true, [
+            @react.Text("This is a marked paragraph."),
+          ]),
+        ]),
       ]),
     ],
   )
