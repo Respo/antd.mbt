@@ -44,6 +44,7 @@ pub fn menu(
   selected_keys? : Array[String],
   class_name? : String,
   style? : @css.RespoStyle,
+  on_select? : (String) -> Unit,
 ) -> @react.VirtualNode {
   let js_props = @dom.new_js_object()
 
@@ -88,8 +89,19 @@ pub fn menu(
   if style is Some(style) {
     js_props.set("style", @dom.v_to_js_obscure(style))
   }
+  if on_select is Some(on_select) {
+    js_props.set("onSelect", @dom.v_to_js_obscure(antd_menu_on_select(on_select)))
+  }
   @react.JsNode(antd_menu(js_props, []))
 }
+
+///|
+extern "js" fn antd_menu_on_select(
+  callback : (String) -> Unit,
+) -> @dom.JsObjectObscure =
+  #| (callback) => {
+  #|   return (info) => callback(info.key);
+  #| }
 
 ///|
 extern "js" fn antd_menu(

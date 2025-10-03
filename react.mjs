@@ -6,7 +6,7 @@ import {
   Button, FloatButton, Typography, Divider, Flex, Space, Layout, Breadcrumb, Menu, Steps,
   Input, Checkbox, Radio, Switch,
   Avatar, Badge, Card, Tag, Tooltip,
-  Alert, Modal, Progress, Spin, Result
+  Alert, Modal, Drawer, Progress, Spin, Result
 } from "antd";
 import * as Icon from "@ant-design/icons";
 
@@ -18,6 +18,6 @@ window.AntD = {
   Button, FloatButton, Typography, Divider, Flex, Space, Layout, Breadcrumb, Menu, Steps,
   Input, Checkbox, Radio, Switch,
   Avatar, Badge, Card, Tag, Tooltip,
-  Alert, Modal, Progress, Spin, Result,
+  Alert, Modal, Drawer, Progress, Spin, Result,
   Icon 
 };
