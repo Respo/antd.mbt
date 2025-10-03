@@ -276,7 +276,6 @@ extern "js" fn antd_flat_button(
   children : Array[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
-  #|   console.log(window.AntD.FloatButton, props, children);
   #|   return window.React.createElement(window.AntD.FloatButton, props, ...children)
   #| }
 

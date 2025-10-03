@@ -52,6 +52,13 @@ fn comp_container(_v : ContainerProps) -> VirtualNode {
           @antd.flat_button(icon=@react.Text("📝"), [@react.Text("Edit")]),
           @antd.flat_button(icon=@react.Text("💾"), [@react.Text("Save")]),
         ]),
+        @react.div(style=respo_style(margin_top=20.0 |> Px), [
+          @react.Text("Icon Examples...: "),
+          @antd.icon(icon_type=Home, []),
+          @antd.icon(icon_type=User, spin=true, []),
+          @antd.icon(icon_type=Setting, rotate=45, []),
+          @antd.icon(icon_type=Heart, two_tone_color="#eb2f96", []),
+        ]),
       ]),
     ],
   )
