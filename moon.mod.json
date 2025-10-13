@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "deps": {
     "tiye/dom-ffi": "0.1.1",
-    "tiye/react": "0.0.2-a3"
+    "tiye/react": "0.0.2"
   },
   "readme": "README.mbt.md",
   "repository": "https://github.com/Respo/antd.mbt",

@@ -281,7 +281,7 @@ pub impl Show for ButtonVariant with output(
 /// - type_: ButtonType - Button type (see ButtonType enum)
 /// - auto_insert_space?: Bool - Add space between Chinese characters (default: true, version: 5.17.0)
 /// - block?: Bool - Fit button width to parent width (default: false)
-/// - class_names?: Array[String] - Semantic DOM class names (version: 5.4.0)
+/// - class_names?: HashMap[String, String] - Semantic DOM class names (version: 5.4.0)
 /// - color?: ButtonColor - Button color scheme (see ButtonColor enum)
 /// - danger?: Bool - Set danger status, follows color if provided (default: false)
 /// - disabled?: Bool - Disabled state (default: false)
@@ -302,7 +302,7 @@ pub fn button(
   type_? : ButtonType,
   auto_insert_space? : Bool,
   block? : Bool,
-  class_names? : Array[String],
+  class_names? : @hashmap.HashMap[String, String],
   color? : ButtonColor,
   danger? : Bool,
   disabled? : Bool,
@@ -328,7 +328,11 @@ pub fn button(
     js_props.set("block", @dom.v_to_js_obscure(block))
   }
   if class_names is Some(class_names) {
-    js_props.set("className", @dom.v_to_js_obscure(class_names))
+    let obj = @dom.new_js_object()
+    for key, value in class_names {
+      obj.set(key, @dom.v_to_js_obscure(value))
+    }
+    js_props.set("className", @dom.v_to_js_obscure(obj))
   }
   if color is Some(color) {
     js_props.set("color", @dom.v_to_js_obscure(color.to_string()))
@@ -373,8 +377,14 @@ pub fn button(
     js_props.set("size", @dom.v_to_js_obscure(size.to_string()))
   }
   if styles is Some(styles) {
-    // TODO: convert styles to correct js value
-    js_props.set("styles", @dom.v_to_js_obscure(styles))
+    let obj = @dom.new_js_object()
+    for key, value in styles {
+      obj.set(
+        key,
+        @dom.v_to_js_obscure(@react.convert_style_to_js_object(value)),
+      )
+    }
+    js_props.set("styles", @dom.v_to_js_obscure(obj))
   }
   if target is Some(target) {
     js_props.set("target", @dom.v_to_js_obscure(target))
