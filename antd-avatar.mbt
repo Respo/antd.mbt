@@ -61,10 +61,18 @@ pub fn avatar(
 }
 
 ///|
-extern "js" fn antd_avatar(
+extern "js" fn antd_avatar_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Avatar, props, ...children)
   #| }
+
+fn antd_avatar(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_avatar_ffi(props, FixedArray::from_array(children))
+}
+

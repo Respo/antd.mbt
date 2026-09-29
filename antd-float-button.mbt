@@ -101,19 +101,34 @@ pub fn float_button_group(
 }
 
 ///|
-extern "js" fn antd_float_button(
+extern "js" fn antd_float_button_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.FloatButton, props, ...children)
   #| }
 
-///|
-extern "js" fn antd_float_button_group(
+fn antd_float_button(
   props : @dom.JsObjectObscure,
   children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_float_button_ffi(props, FixedArray::from_array(children))
+}
+
+///|
+extern "js" fn antd_float_button_group_ffi(
+  props : @dom.JsObjectObscure,
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.FloatButton.Group, props, ...children)
   #| }
+
+fn antd_float_button_group(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_float_button_group_ffi(props, FixedArray::from_array(children))
+}
+

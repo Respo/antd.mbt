@@ -55,10 +55,18 @@ pub fn card(
 }
 
 ///|
-extern "js" fn antd_card(
+extern "js" fn antd_card_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Card, props, ...children)
   #| }
+
+fn antd_card(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_card_ffi(props, FixedArray::from_array(children))
+}
+

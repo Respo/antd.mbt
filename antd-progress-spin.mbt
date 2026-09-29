@@ -116,19 +116,34 @@ pub fn spin(
 // ============= 外部函数定义 =============
 
 ///|
-extern "js" fn antd_progress(
+extern "js" fn antd_progress_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Progress, props, ...children)
   #| }
 
-///|
-extern "js" fn antd_spin(
+fn antd_progress(
   props : @dom.JsObjectObscure,
   children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_progress_ffi(props, FixedArray::from_array(children))
+}
+
+///|
+extern "js" fn antd_spin_ffi(
+  props : @dom.JsObjectObscure,
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Spin, props, ...children)
   #| }
+
+fn antd_spin(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_spin_ffi(props, FixedArray::from_array(children))
+}
+

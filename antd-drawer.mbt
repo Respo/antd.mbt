@@ -84,10 +84,18 @@ pub fn drawer(
 }
 
 ///|
-extern "js" fn antd_drawer(
+extern "js" fn antd_drawer_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Drawer, props, ...children)
   #| }
+
+fn antd_drawer(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_drawer_ffi(props, FixedArray::from_array(children))
+}
+
