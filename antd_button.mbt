@@ -397,10 +397,18 @@ pub fn button(
 }
 
 ///|
-extern "js" fn antd_button(
+extern "js" fn antd_button_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Button, props, ...children)
   #| }
+
+fn antd_button(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_button_ffi(props, FixedArray::from_array(children))
+}
+

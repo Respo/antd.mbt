@@ -49,10 +49,18 @@ pub fn tag(
 }
 
 ///|
-extern "js" fn antd_tag(
+extern "js" fn antd_tag_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Tag, props, ...children)
   #| }
+
+fn antd_tag(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_tag_ffi(props, FixedArray::from_array(children))
+}
+

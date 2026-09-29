@@ -57,10 +57,18 @@ pub fn result(
 }
 
 ///|
-extern "js" fn antd_result(
+extern "js" fn antd_result_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Result, props, ...children)
   #| }
+
+fn antd_result(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_result_ffi(props, FixedArray::from_array(children))
+}
+

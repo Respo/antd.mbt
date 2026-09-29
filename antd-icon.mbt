@@ -904,9 +904,9 @@ pub impl Show for IconType with output(self : IconType, logger : &Logger) {
 }
 
 ///|
-extern "js" fn antd_icon(
+extern "js" fn antd_icon_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   const iconType = props.type;
@@ -928,6 +928,13 @@ extern "js" fn antd_icon(
   #|
   #|   return window.React.createElement(IconComponent, props, ...children);
   #| }
+
+fn antd_icon(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_icon_ffi(props, FixedArray::from_array(children))
+}
 
 ///|
 /// Icon component - Creates an Ant Design icon with various styling options

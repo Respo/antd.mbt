@@ -39,10 +39,18 @@ pub fn affix(
 }
 
 ///|
-extern "js" fn antd_affix(
+extern "js" fn antd_affix_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Affix, props, ...children)
   #| }
+
+fn antd_affix(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_affix_ffi(props, FixedArray::from_array(children))
+}
+

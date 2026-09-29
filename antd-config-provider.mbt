@@ -68,10 +68,18 @@ pub fn config_provider(
 }
 
 ///|
-extern "js" fn antd_config_provider(
+extern "js" fn antd_config_provider_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.ConfigProvider, props, ...children)
   #| }
+
+fn antd_config_provider(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_config_provider_ffi(props, FixedArray::from_array(children))
+}
+

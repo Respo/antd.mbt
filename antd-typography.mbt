@@ -161,13 +161,20 @@ pub fn typography_text(
 }
 
 ///|
-extern "js" fn antd_typography_text(
+extern "js" fn antd_typography_text_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Typography.Text, props, ...children)
   #| }
+
+fn antd_typography_text(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_typography_text_ffi(props, FixedArray::from_array(children))
+}
 
 ///|
 /// Typography.Title component function
@@ -271,13 +278,20 @@ pub fn typography_title(
 }
 
 ///|
-extern "js" fn antd_typography_title(
+extern "js" fn antd_typography_title_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Typography.Title, props, ...children)
   #| }
+
+fn antd_typography_title(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_typography_title_ffi(props, FixedArray::from_array(children))
+}
 
 ///|
 /// Typography.Paragraph component function
@@ -372,10 +386,18 @@ pub fn typography_paragraph(
 }
 
 ///|
-extern "js" fn antd_typography_paragraph(
+extern "js" fn antd_typography_paragraph_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Typography.Paragraph, props, ...children)
   #| }
+
+fn antd_typography_paragraph(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_typography_paragraph_ffi(props, FixedArray::from_array(children))
+}
+

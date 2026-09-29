@@ -112,19 +112,34 @@ pub fn steps_step(
 }
 
 ///|
-extern "js" fn antd_steps(
+extern "js" fn antd_steps_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Steps, props, ...children)
   #| }
 
-///|
-extern "js" fn antd_steps_step(
+fn antd_steps(
   props : @dom.JsObjectObscure,
   children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_steps_ffi(props, FixedArray::from_array(children))
+}
+
+///|
+extern "js" fn antd_steps_step_ffi(
+  props : @dom.JsObjectObscure,
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Steps.Step, props, ...children)
   #| }
+
+fn antd_steps_step(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_steps_step_ffi(props, FixedArray::from_array(children))
+}
+

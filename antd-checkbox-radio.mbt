@@ -163,28 +163,50 @@ pub fn radio_group(
 // ============= 外部函数定义 =============
 
 ///|
-extern "js" fn antd_checkbox(
+extern "js" fn antd_checkbox_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Checkbox, props, ...children)
   #| }
 
-///|
-extern "js" fn antd_radio(
+fn antd_checkbox(
   props : @dom.JsObjectObscure,
   children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_checkbox_ffi(props, FixedArray::from_array(children))
+}
+
+///|
+extern "js" fn antd_radio_ffi(
+  props : @dom.JsObjectObscure,
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Radio, props, ...children)
   #| }
 
-///|
-extern "js" fn antd_radio_group(
+fn antd_radio(
   props : @dom.JsObjectObscure,
   children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_radio_ffi(props, FixedArray::from_array(children))
+}
+
+///|
+extern "js" fn antd_radio_group_ffi(
+  props : @dom.JsObjectObscure,
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Radio.Group, props, ...children)
   #| }
+
+fn antd_radio_group(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_radio_group_ffi(props, FixedArray::from_array(children))
+}
+

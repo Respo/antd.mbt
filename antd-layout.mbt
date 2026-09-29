@@ -59,13 +59,20 @@ pub fn divider(
 }
 
 ///|
-extern "js" fn antd_divider(
+extern "js" fn antd_divider_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Divider, props, ...children)
   #| }
+
+fn antd_divider(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_divider_ffi(props, FixedArray::from_array(children))
+}
 
 // Flex 组件
 
@@ -178,13 +185,20 @@ pub fn flex(
 }
 
 ///|
-extern "js" fn antd_flex(
+extern "js" fn antd_flex_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Flex, props, ...children)
   #| }
+
+fn antd_flex(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_flex_ffi(props, FixedArray::from_array(children))
+}
 
 // Space 组件
 
@@ -254,13 +268,20 @@ pub fn space(
 }
 
 ///|
-extern "js" fn antd_space(
+extern "js" fn antd_space_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Space, props, ...children)
   #| }
+
+fn antd_space(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_space_ffi(props, FixedArray::from_array(children))
+}
 
 // Layout 组件
 
@@ -288,13 +309,20 @@ pub fn layout(
 }
 
 ///|
-extern "js" fn antd_layout(
+extern "js" fn antd_layout_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Layout, props, ...children)
   #| }
+
+fn antd_layout(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_layout_ffi(props, FixedArray::from_array(children))
+}
 
 // Layout.Header 组件
 
@@ -316,13 +344,20 @@ pub fn layout_header(
 }
 
 ///|
-extern "js" fn antd_layout_header(
+extern "js" fn antd_layout_header_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Layout.Header, props, ...children)
   #| }
+
+fn antd_layout_header(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_layout_header_ffi(props, FixedArray::from_array(children))
+}
 
 // Layout.Content 组件
 
@@ -344,13 +379,20 @@ pub fn layout_content(
 }
 
 ///|
-extern "js" fn antd_layout_content(
+extern "js" fn antd_layout_content_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Layout.Content, props, ...children)
   #| }
+
+fn antd_layout_content(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_layout_content_ffi(props, FixedArray::from_array(children))
+}
 
 // Layout.Footer 组件
 
@@ -372,10 +414,18 @@ pub fn layout_footer(
 }
 
 ///|
-extern "js" fn antd_layout_footer(
+extern "js" fn antd_layout_footer_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Layout.Footer, props, ...children)
   #| }
+
+fn antd_layout_footer(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_layout_footer_ffi(props, FixedArray::from_array(children))
+}
+

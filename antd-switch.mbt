@@ -67,10 +67,18 @@ pub fn switch(
 }
 
 ///|
-extern "js" fn antd_switch(
+extern "js" fn antd_switch_ffi(
   props : @dom.JsObjectObscure,
-  children : Array[@react.JsValue],
+  children : FixedArray[@react.JsValue],
 ) -> @react.JsValue =
   #| (props, children) => {
   #|   return window.React.createElement(window.AntD.Switch, props, ...children)
   #| }
+
+fn antd_switch(
+  props : @dom.JsObjectObscure,
+  children : Array[@react.JsValue],
+) -> @react.JsValue {
+  antd_switch_ffi(props, FixedArray::from_array(children))
+}
+
